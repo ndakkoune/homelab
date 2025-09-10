@@ -18,9 +18,9 @@ spec:
     spec:
       securityContext:
         runAsNonRoot: true
-        runAsUser: 1111
-        runAsGroup: 1111
-        fsGroup: 1111
+        runAsUser: 33
+        runAsGroup: 33
+        fsGroup: 33
       containers:
       - name: linkding
         image: sissbruecker/linkding:1.42.0
