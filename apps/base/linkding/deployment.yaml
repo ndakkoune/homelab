@@ -26,7 +26,6 @@ spec:
         image: sissbruecker/linkding:1.42.0
         securityContext:
           allowPrivilegeEscalation: false
-          readOnlyRootFilesystem: true
         ports:
         - containerPort: 9090
         volumeMounts:
