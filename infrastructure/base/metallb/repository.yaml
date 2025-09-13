@@ -5,4 +5,3 @@ metadata:
   namespace: metallb-system
 spec:
   url: https://metallb.github.io/metallb
-  type: url
