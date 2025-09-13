@@ -4,6 +4,6 @@ metadata:
   name: l2-advertisement
   namespace: metallb-system
 spec:
-  addresses:
-  - 192.168.1.110-192.168.1.149
+  ipAddressPools:
+  - private-pool
 
