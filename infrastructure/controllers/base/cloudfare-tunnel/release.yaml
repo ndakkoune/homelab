@@ -8,11 +8,18 @@ spec:
     spec:
       chart: cloudfare-tunnel
       version: 0.3.x
-      interval: 5h
+      interval: 1m
       sourceRef:
         kind: HelmRepository
         name: cloudfare
   # values:
+  releaseName: cloudfare-tunnel
   targetNamespace: cloudfare
-  interval: 1h
+  interval: 10m
+  install:
+    remediation:
+      retries: 3
+  upgrade:
+    remediation:
+      retries: 3
 
