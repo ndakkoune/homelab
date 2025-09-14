@@ -5,8 +5,7 @@ metadata:
   namespace: linkding
 spec:
   selector:
-    matchLabels:
-      app: linkding
+    app.kubernetes.io/name: linkding
   type: ClusterIP
   ports:
   - protocol: TCP

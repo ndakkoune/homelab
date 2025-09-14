@@ -4,17 +4,17 @@ metadata:
   name: linkding
   namespace: linkding
   labels:
-    app: linkding
+    app.kubernetes.io/name: linkding
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: linkding
+      app.kubernetes.io/name: linkding
   template:
     metadata:
       namespace: linkding
       labels:
-        app: linkding
+        app.kubernetes.io/name: linkding
     spec:
       securityContext:
         runAsNonRoot: true
