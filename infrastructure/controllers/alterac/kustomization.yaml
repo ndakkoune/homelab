@@ -4,4 +4,3 @@ resources:
   - ./local-path-provisioner
   - ./metallb
   - ./nginx
-  - ./cloudfare-tunnel
