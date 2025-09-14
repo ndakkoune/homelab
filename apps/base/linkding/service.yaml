@@ -5,11 +5,10 @@ metadata:
   namespace: linkding
 spec:
   selector:
-    app: linkding-service
+    matchLabels:
+      app: linkding
   type: ClusterIP
   ports:
   - protocol: TCP
     port: 80
     targetPort: 9090
----
-
