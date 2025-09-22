@@ -1,0 +1,17 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: tailscale-operator
+  namespace: tailscale
+spec:
+  chart:
+    spec:
+      chart: tailscale-operator
+      version: 1.88.x
+      interval: 10m # this is for checking of a new chart
+      sourceRef:
+        kind: HelmRepository
+        name: tailscale
+        namespace: tailscale
+  interval: 1h # this is for drifting of the helm created resources
+
