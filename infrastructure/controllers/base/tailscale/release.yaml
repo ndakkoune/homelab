@@ -17,7 +17,7 @@ spec:
   valuesFrom:
     - kind: ConfigMap
       name: tailscale-config
-      valuesKey: apiServerProxyConfig.mode
+      valuesKey: apiServerProxyConfigMode
       targetPath: apiServerProxyConfig.mode
     - kind: Secret
       name: tailscale-operator-oauth

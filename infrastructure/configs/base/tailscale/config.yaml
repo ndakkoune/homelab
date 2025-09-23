@@ -4,4 +4,4 @@ metadata:
   name: tailscale-config
   namespace: tailscale
 data:
-  apiServerProxyConfig.mode: "true"
+  apiServerProxyConfigMode: "true"
