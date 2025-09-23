@@ -14,4 +14,12 @@ spec:
         name: tailscale
         namespace: tailscale
   interval: 1h # this is for drifting of the helm created resources
-
+  valuesFrom:
+    - kind: Secret
+      name: tailscale-operator-oauth
+      valuesKey: clientId
+      targetPath: oauth.clientId
+    - kind: Secret
+      name: tailscale-operator-oauth
+      valuesKey: clientSecret
+      targetPath: oauth.clientSecret
