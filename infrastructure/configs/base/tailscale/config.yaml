@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: tailscale-config
+  namespace: tailscale
+data:
+  apiServerProxyConfig.mode: "true"
