@@ -4,3 +4,11 @@ resources:
   - namespace.yaml
   - repository.yaml
   - release.yaml
+  - secrets.yaml
+# secretGenerator:
+#   - name: tailscale-operator-oauth
+#     namespace: tailscale
+#     files:
+#       - values.yaml=secrets.yaml
+# configurations:
+#   - kustomizeconfig.yaml

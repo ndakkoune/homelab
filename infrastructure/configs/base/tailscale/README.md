@@ -1,0 +1,1 @@
+We are using SOPS to encrypt clientId and clientSecret. Flux needs to have the secretGenerator in the same `kustomization.yaml` file as the `HelmRelease` that uses it, so the config resides in `controllers/base/tailscale`. See [this](https://fluxcd.io/flux/guides/helmreleases/#refer-to-values-in-secret-generated-with-kustomize-and-sops).

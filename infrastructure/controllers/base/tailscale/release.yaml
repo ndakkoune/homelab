@@ -14,11 +14,10 @@ spec:
         name: tailscale
         namespace: tailscale
   interval: 1h # this is for drifting of the helm created resources
+  values:
+    apiServerProxyConfig:
+      mode: "true"
   valuesFrom:
-    - kind: ConfigMap
-      name: tailscale-config
-      valuesKey: apiServerProxyConfigMode
-      targetPath: apiServerProxyConfig.mode
     - kind: Secret
       name: tailscale-operator-oauth
       valuesKey: clientId
