@@ -1,27 +1,20 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: cloudflare-tunnel
+  name: cloudflare-tunnel-remote
   namespace: cloudflare
 spec:
   chart:
     spec:
-      chart: cloudflare-tunnel
-      version: 0.3.x
+      chart: cloudflare-tunnel-remote
+      version: 0.1.x
       interval: 5h
       sourceRef:
         kind: HelmRepository
         name: cloudflare
-  releaseName: cloudflare-tunnel
+  releaseName: cloudflare-tunnel-remote
   targetNamespace: cloudflare
   interval: 1h
-  values:
-    cloudflare:
-      tunnelName: "homelab"
-      ingress:
-        - hostname: '*.ndakkoune.com'
-          service: http://nginx.nginx.svc.cluster.local:80
-        - service: http_status:404
   valuesFrom:
     - kind: Secret
       name: cloudflare-secret
