@@ -17,6 +17,6 @@ spec:
   interval: 1h # this is for drifting of the helm created resources
   values:
     controller:
+      healthStatus: true
       service:
-        name: nginx
         type: ClusterIP
