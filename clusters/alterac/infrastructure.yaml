@@ -4,7 +4,7 @@ metadata:
   name: infrastructure-controllers
   namespace: flux-system
 spec:
-  interval: 10m0s
+  interval: 1m
   path: ./infrastructure/controllers/alterac
   prune: true
   sourceRef:
@@ -23,7 +23,7 @@ metadata:
 spec:
   dependsOn:
     - name: infrastructure-controllers
-  interval: 10m0s
+  interval: 1m
   path: ./infrastructure/configs/alterac
   prune: true
   sourceRef:
