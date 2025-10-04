@@ -6,3 +6,4 @@ resources:
   - ./nginx
   - ./tailscale
   - ./cloudflare
+  - ./cert-manager
