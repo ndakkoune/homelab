@@ -8,11 +8,11 @@ spec:
     spec:
       chart: cert-manager
       version: v1.18.x
-      interval: 1h
+      interval: 5h
       sourceRef:
         kind: HelmRepository
         name: cert-manager
-  interval: 5m
+  interval: 1h
   values:
     crds:
       enabled: true
