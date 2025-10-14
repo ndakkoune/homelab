@@ -8,3 +8,14 @@ spec:
   url: oci://ghcr.io/prometheus-community/charts/kube-prometheus-stack
   ref:
     tag: "78.2.1"
+---
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: OCIRepository
+metadata:
+  name: prometheus-snmp-exporter
+  namespace: monitoring
+spec:
+  interval: 5h
+  url: oci://ghcr.io/prometheus-community/charts/prometheus-snmp-exporter
+  ref:
+    tag: "9.8.1"
