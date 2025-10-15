@@ -8,6 +8,11 @@ spec:
     kind: OCIRepository
     name: kube-prometheus-stack
   interval: 10m
+  values:
+    prometheus:
+      prometheusSpec:
+        podMonitorSelectorNilUsesHelmValues: false
+        serviceMonitorSelectorNilUsesHelmValues: false
 ---
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease

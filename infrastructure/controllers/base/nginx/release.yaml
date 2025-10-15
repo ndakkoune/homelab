@@ -19,3 +19,9 @@ spec:
     controller:
       service:
         type: ClusterIP
+      metrics:
+        enabled: true
+        serviceMonitor:
+          additionalLabels:
+            release: prometheus
+          enabled: true
