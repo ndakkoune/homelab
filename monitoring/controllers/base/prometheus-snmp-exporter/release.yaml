@@ -8,3 +8,6 @@ spec:
     kind: OCIRepository
     name: prometheus-snmp-exporter
   interval: 10m
+  values:
+    serviceMonitor:
+      enabled: true
