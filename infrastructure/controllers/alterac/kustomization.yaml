@@ -7,4 +7,3 @@ resources:
   - ./tailscale
   - ./cloudflare
   - ./cert-manager
-  - ./kube-prometheus-stack
