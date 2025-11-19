@@ -28,3 +28,6 @@ spec:
               - target_label: __address__
                 replacement: prometheus-snmp-exporter.monitoring.svc.cluster.local:9116
             scrape_interval: 30s
+  valuesFrom:
+      - kind: Secret
+        name: kube-prometheus-stack-grafana-secret
