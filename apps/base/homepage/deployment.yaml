@@ -24,7 +24,7 @@ spec:
       enableServiceLinks: true
       containers:
         - name: homepage
-          image: "ghcr.io/gethomepage/homepage:latest"
+          image: "ghcr.io/gethomepage/homepage:v1.7.0"
           imagePullPolicy: Always
           env:
             - name: HOMEPAGE_ALLOWED_HOSTS
@@ -33,6 +33,13 @@ spec:
             - name: http
               containerPort: 3000
               protocol: TCP
+          resources:
+            limits:
+              cpu: "500m"
+              memory: "256Mi"
+            requests:
+              cpu: "100m"
+              memory: "128Mi"
           volumeMounts:
             - mountPath: /app/config/custom.js
               name: homepage-config
