@@ -9,3 +9,4 @@ resources:
   - ./cert-manager
   - ./cilium
   - ./democratic-csi
+  - ./snapshot-controller

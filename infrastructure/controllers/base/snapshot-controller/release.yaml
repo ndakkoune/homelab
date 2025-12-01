@@ -1,0 +1,17 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: snapshot-controller
+  namespace: kube-system
+spec:
+  chart:
+    spec:
+      chart: snapshot-controller
+      version: 4.2.x
+      sourceRef:
+        kind: HelmRepository
+        name: piraeus-charts
+        namespace: flux-system
+      interval: 24h
+  interval: 1h
+  releaseName: snapshot-controller
