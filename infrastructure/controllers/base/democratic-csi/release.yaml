@@ -20,6 +20,10 @@ spec:
       name: truenas-nfs-driver-config
       valuesKey: driver-config-file.yaml
   values:
+    controller:
+      driver:
+        image:
+          tag: next
     csiDriver:
       name: nfs
     driver:
