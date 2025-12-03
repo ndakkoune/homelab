@@ -7,7 +7,7 @@ spec:
   chart:
     spec:
       chart: tailscale-operator
-      version: 1.88.x
+      version: 1.90.x
       interval: 5h # this is for checking of a new chart
       sourceRef:
         kind: HelmRepository
@@ -17,6 +17,7 @@ spec:
   values:
     apiServerProxyConfig:
       mode: "true"
+      allowImpersonation: "true"
   valuesFrom:
     - kind: Secret
       name: tailscale-operator-oauth
