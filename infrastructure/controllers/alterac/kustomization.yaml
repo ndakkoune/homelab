@@ -10,3 +10,4 @@ resources:
   - ./cilium
   - ./democratic-csi
   - ./snapshot-controller
+  - ./pi-hole
