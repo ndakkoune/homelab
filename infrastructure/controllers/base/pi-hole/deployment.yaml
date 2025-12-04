@@ -21,6 +21,10 @@ spec:
       containers:
       - name: pihole
         image: pihole/pihole:2025.11.1
+        securityContext:
+          capabilities:
+            add:
+              - CAP_CHOWN
         volumeMounts:
           - name: pihole-volume
             mountPath: /etc/pihole
@@ -28,10 +32,7 @@ spec:
         - name: TZ
           value: 'Europe/Paris'
         - name: FTLCONF_webserver_api_password
-          valueFrom:
-            secretKeyRef:
-              name: pihole-secret
-              key: webserver_api_password
+          value: ''
       volumes:
       - name: pihole-volume
         persistentVolumeClaim:
