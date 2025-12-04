@@ -11,3 +11,4 @@ resources:
   - ./democratic-csi
   - ./snapshot-controller
   - ./pi-hole
+  - ./external-dns
