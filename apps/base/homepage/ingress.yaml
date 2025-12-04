@@ -6,6 +6,7 @@ metadata:
   labels:
     app.kubernetes.io/name: homepage
   annotations:
+    external-dns.alpha.kubernetes.io/hostname: homepage.ndakkoune.com
     cert-manager.io/cluster-issuer: letsencrypt
     gethomepage.dev/description: Dynamically Detected Homepage
     gethomepage.dev/enabled: "true"
