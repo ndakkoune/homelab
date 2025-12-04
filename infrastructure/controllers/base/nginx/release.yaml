@@ -19,6 +19,8 @@ spec:
     controller:
       service:
         type: ClusterIP
+        annotations:
+          tailscale.com/expose: "true"
       metrics:
         enabled: true
         serviceMonitor:
