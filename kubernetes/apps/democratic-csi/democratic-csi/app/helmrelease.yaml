@@ -1,0 +1,41 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: democratic-csi
+spec:
+  chartRef:
+    kind: OCIRepository
+    name: democratic-csi
+  interval: 1h
+  valuesFrom:
+    - kind: Secret
+      name: truenas-nfs-driver-config
+      valuesKey: driver-config-file.yaml
+  values:
+    controller:
+      driver:
+        image:
+          tag: next
+    csiDriver:
+      name: nfs
+    driver:
+      config:
+        driver: freenas-api-nfs
+      existingConfigSecret: truenas-nfs-driver-config
+    storageClasses:
+      - allowVolumeExpansion: true
+        defaultClass: false
+        mountOptions:
+          - noatime
+          - nfsvers=3
+          - nolock
+        name: nfs
+        parameters:
+          detachedVolumesFromSnapshots: 'false'
+          fsType: nfs
+        reclaimPolicy: Delete
+        volumeBindingMode: Immediate
+    volumeSnapshotClasses:
+      - name: nfs
+        parameters:
+          detachedSnapshots: 'true'
