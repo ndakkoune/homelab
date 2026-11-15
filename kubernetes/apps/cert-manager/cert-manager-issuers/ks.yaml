@@ -7,6 +7,7 @@ metadata:
 spec:
   dependsOn:
     - name: cert-manager
+    - name: bitwarden-secrets-manager
   targetNamespace: cert-manager
   commonMetadata:
     labels:
@@ -20,7 +21,3 @@ spec:
   interval: 30m
   retryInterval: 1m
   timeout: 5m
-  decryption:
-    provider: sops
-    secretRef:
-      name: sops-age

@@ -5,6 +5,8 @@ metadata:
   name: democratic-csi
   namespace: flux-system
 spec:
+  dependsOn:
+    - name: bitwarden-secrets-manager
   targetNamespace: storage
   commonMetadata:
     labels:
@@ -18,7 +20,3 @@ spec:
   interval: 30m
   retryInterval: 1m
   timeout: 5m
-  decryption:
-    provider: sops
-    secretRef:
-      name: sops-age
