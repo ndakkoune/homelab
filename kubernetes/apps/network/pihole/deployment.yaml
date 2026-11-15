@@ -1,0 +1,41 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master-standalone-strict/deployment-apps-v1.json
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pihole
+  namespace: pihole
+  labels:
+    app.kubernetes.io/name: pihole
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: pihole
+  template:
+    metadata:
+      namespace: pihole
+      labels:
+        app.kubernetes.io/name: pihole
+    spec:
+      securityContext:
+        fsGroup: 1000
+      containers:
+      - name: pihole
+        image: pihole/pihole:2025.11.1
+        securityContext:
+          capabilities:
+            add:
+              - CAP_CHOWN
+        volumeMounts:
+          - name: pihole-volume
+            mountPath: /etc/pihole
+        env:
+        - name: TZ
+          value: 'Europe/Paris'
+        - name: FTLCONF_webserver_api_password
+          value: ''
+      volumes:
+      - name: pihole-volume
+        persistentVolumeClaim:
+          claimName: pihole-storage
+
