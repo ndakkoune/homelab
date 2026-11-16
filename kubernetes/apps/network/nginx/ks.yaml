@@ -5,7 +5,7 @@ metadata:
   name: nginx
   namespace: flux-system
 spec:
-  targetNamespace: nginx
+  targetNamespace: network
   commonMetadata:
     labels:
       app.kubernetes.io/name: nginx

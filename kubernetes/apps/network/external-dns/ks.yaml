@@ -5,7 +5,7 @@ metadata:
   name: external-dns
   namespace: flux-system
 spec:
-  targetNamespace: external-dns
+  targetNamespace: network
   commonMetadata:
     labels:
       app.kubernetes.io/name: external-dns
