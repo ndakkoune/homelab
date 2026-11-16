@@ -3,7 +3,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: external-dns
-  namespace: external-dns
 spec:
   strategy:
     type: Recreate
@@ -12,7 +11,6 @@ spec:
       app: external-dns
   template:
     metadata:
-      namespace: external-dns
       labels:
         app: external-dns
     spec:
@@ -34,6 +32,6 @@ spec:
         # Switch to pihole V6 API
         - --pihole-api-version=6
         # Change this to the actual address of your Pi-hole web server
-        - --pihole-server=http://pihole.pihole.svc.cluster.local
+        - --pihole-server=http://pihole.network.svc.cluster.local
       securityContext:
         fsGroup: 65534 # For ExternalDNS to be able to read Kubernetes token files

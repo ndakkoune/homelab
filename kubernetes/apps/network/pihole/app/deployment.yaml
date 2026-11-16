@@ -3,7 +3,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: pihole
-  namespace: pihole
   labels:
     app.kubernetes.io/name: pihole
 spec:
@@ -13,7 +12,6 @@ spec:
       app.kubernetes.io/name: pihole
   template:
     metadata:
-      namespace: pihole
       labels:
         app.kubernetes.io/name: pihole
     spec:
