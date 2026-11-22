@@ -8,6 +8,9 @@ spec:
   dependsOn:
     - name: cert-manager
     - name: bitwarden-secrets-manager
+# bitwarden-sdk-server requires to run in HTTPS mode.
+# It needs the cert-manager CRDs.
+# Since we can't reach any external secret stored in bitwarden until then, we make cert-amanager and btwarden-secrets-manager wait.
   targetNamespace: cert-manager
   commonMetadata:
     labels:

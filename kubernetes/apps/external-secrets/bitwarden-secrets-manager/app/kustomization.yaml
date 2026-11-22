@@ -6,4 +6,5 @@ resources:
   - ./certificate.yaml
   - ./cluster-issuer.yaml
   - ./cluster-secret-store.yaml
+  - ./config-map.yaml
   - ./secret.yaml
