@@ -23,3 +23,7 @@ spec:
     secretRef:
       name: sops-age
 
+# We need bitwarden to fetch our secrets, but we also need a token to access bitwarden secrets manager (chicken-and-egg problem).
+# A sops age secret is used to provide this token.
+# However, the Flux controller also needs the age private key to decrypt the encoded secret.
+# So we manually precreate a `sops-age` Secret resource with it (or bootstrap during cluster creation).

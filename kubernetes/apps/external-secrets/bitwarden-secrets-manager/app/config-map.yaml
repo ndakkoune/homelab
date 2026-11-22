@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/master-standalone-strict/configmap-v1.json
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: bitwarden-ca
+data:
+  ca.crt: |
+    -----BEGIN CERTIFICATE-----
+    MIID3TCCAsWgAwIBAgIQYqLddBVn45XbDvCqGuptozANBgkqhkiG9w0BAQsFADA9
+    MRwwGgYDVQQKExNleHRlcm5hbC1zZWNyZXRzLmlvMR0wGwYDVQQDExRiaXR3YXJk
+    ZW4tc2RrLXNlcnZlcjAeFw0yNjExMTYwNTM4NTFaFw0yNzAyMTQwNTM4NTFaMD0x
+    HDAaBgNVBAoTE2V4dGVybmFsLXNlY3JldHMuaW8xHTAbBgNVBAMTFGJpdHdhcmRl
+    bi1zZGstc2VydmVyMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAyBO2
+    duN/BGUPAKJp8nibyukno93PuSKHe6z66PV+bfu+TMVE5GArVdE4zhn+GRBuqyDO
+    F1xYOBwpGMnpNZa5A6GbO1Bw9sdip07PwjoPl9EtttBBDHeBQxQCouDEklt31Phq
+    l72jMObdnOUSmeNPk/Wi272vEY/COZQcaEPKLPxQQpOWUUCk5OaRMiP9qbT9E8+8
+    IXVNXfzzTLAO4HuwH9KBeAchjruR4l9E5N6bJsIhuIfLd3FuZih6Y0FmSOVED55f
+    x8i35laSf4bJNnUIIU3ED1GaD87JDLZGzMd0wxaoNrlM2fWrsayGgaNyJEy/MwHI
+    4oGJdLrDBV9924bHaQIDAQABo4HYMIHVMA4GA1UdDwEB/wQEAwICpDAPBgNVHRMB
+    Af8EBTADAQH/MB0GA1UdDgQWBBQQaRoM480YQ1doL+JL+CcUXmyL9jCBkgYDVR0R
+    BIGKMIGHgjdiaXR3YXJkZW4tc2RrLXNlcnZlci5leHRlcm5hbC1zZWNyZXRzLnN2
+    Yy5jbHVzdGVyLmxvY2FsgiliaXR3YXJkZW4tc2RrLXNlcnZlci5leHRlcm5hbC1z
+    ZWNyZXRzLnN2Y4IJbG9jYWxob3N0hwR/AAABhxAAAAAAAAAAAAAAAAAAAAABMA0G
+    CSqGSIb3DQEBCwUAA4IBAQDCd4v06AbD/0pNwzhXfK5AuC5KBSjOfFeb3UVl40be
+    Jv9e1pFmvi8rcVWXIpb4dlIjklVlTUzHGHMRzKUwV4ekX829Vf+UR7AMa3Ri8bTn
+    QBHw6ob54NLOZ65yVxeUaIn6oh8++LwunXxq6uR5yviZaXTg/OCeNQ9KZACuX0xx
+    Gv38xmPejDCr5L1jFCyy6rV4nE+jG/1S18+xRp0/cC3Kjno5uBV0ZVxA41ddpWjr
+    Kl+4GuqJqY43zcHKTbT1RbF6xRdIMWFZMtfA9Za7ZgttAD24umfFP2zI0zO+szCZ
+    kfUYS4ec/WquvKNyCdrM8wCbcrpWknlBqWoPUXYzJZ+F
+    -----END CERTIFICATE-----
+
