@@ -42,6 +42,10 @@ spec:
             key: api-key
       - name: DD_SITE
         value: datadoghq.eu
+      - name: K8S_NODE_NAME
+        valueFrom:
+          fieldRef:
+            fieldPath: spec.nodeName
     config:
       receivers:
         jaeger: null
@@ -52,6 +56,7 @@ spec:
           api:
             key: ${env:DD_API_KEY}
             site: ${env:DD_SITE}
+          hostname: ${env:K8S_NODE_NAME}
           deployment_type: daemonset
       exporters:
         debug: null
