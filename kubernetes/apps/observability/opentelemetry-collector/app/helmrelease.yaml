@@ -1,0 +1,105 @@
+# yaml-language-server: $schema=https://k8s-schemas.home-operations.com/helm.toolkit.fluxcd.io/helmrelease_v2.json
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: opentelemetry-collector
+spec:
+  chartRef:
+    kind: OCIRepository
+    name: opentelemetry-collector
+  interval: 1h
+  values:
+    mode: daemonset
+    image:
+      repository: ghcr.io/open-telemetry/opentelemetry-collector-releases/opentelemetry-collector-contrib
+    command:
+      name: otelcol-contrib
+    presets:
+      logsCollection:
+        enabled: true
+      hostMetrics:
+        enabled: true
+      kubeletMetrics:
+        enabled: true
+      kubernetesAttributes:
+        enabled: true
+      resourceDetection:
+        enabled: true
+    ports:
+      jaeger-compact:
+        enabled: false
+      jaeger-thrift:
+        enabled: false
+      jaeger-grpc:
+        enabled: false
+      zipkin:
+        enabled: false
+    extraEnvs:
+      - name: DD_API_KEY
+        valueFrom:
+          secretKeyRef:
+            name: datadog-api-key
+            key: api-key
+      - name: DD_SITE
+        value: datadoghq.eu
+    config:
+      receivers:
+        jaeger: null
+        zipkin: null
+        prometheus: null
+      extensions:
+        datadog:
+          api:
+            key: ${env:DD_API_KEY}
+            site: ${env:DD_SITE}
+          deployment_type: daemonset
+      exporters:
+        debug: null
+        otlp_http:
+          endpoint: https://otlp.${env:DD_SITE}
+          headers:
+            dd-api-key: ${env:DD_API_KEY}
+      service:
+        extensions:
+          - health_check
+          - datadog
+        pipelines:
+          traces:
+            receivers:
+              - otlp
+            processors:
+              - memory_limiter
+              - resourcedetection
+              - k8s_attributes
+              - batch
+            exporters:
+              - otlp_http
+          metrics:
+            receivers:
+              - otlp
+              - host_metrics
+              - kubelet_stats
+            processors:
+              - memory_limiter
+              - resourcedetection
+              - k8s_attributes
+              - batch
+            exporters:
+              - otlp_http
+          logs:
+            receivers:
+              - otlp
+              - file_log
+            processors:
+              - memory_limiter
+              - resourcedetection
+              - k8s_attributes
+              - batch
+            exporters:
+              - otlp_http
+    resources:
+      requests:
+        cpu: 100m
+        memory: 128Mi
+      limits:
+        memory: 256Mi
