@@ -69,7 +69,7 @@ spec:
               - otlp
             processors:
               - memory_limiter
-              - resourcedetection
+              - resourcedetection/env
               - k8s_attributes
               - batch
             exporters:
@@ -81,7 +81,7 @@ spec:
               - kubelet_stats
             processors:
               - memory_limiter
-              - resourcedetection
+              - resourcedetection/env
               - k8s_attributes
               - batch
             exporters:
@@ -92,7 +92,7 @@ spec:
               - file_log
             processors:
               - memory_limiter
-              - resourcedetection
+              - resourcedetection/env
               - k8s_attributes
               - batch
             exporters:
